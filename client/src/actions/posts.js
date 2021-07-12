@@ -1,26 +1,10 @@
+import * as api from "../api/index.js";
 
-//IMPORT MODULES
-import * as api from '../api/index.js';
-
-
-//API FN CALL; API FN RESPONSE
-/*
-export const fnName = (arg) => async (dispatch) => {
-  try {
-    const { data } = await api.fnNme(arg);            -->calls  api fns  and await for response
-    dispatch({ type: actionTypeVar, payload: data }); -->receive res from api fns and  and dispatch response with actionType on redux store) 
-  } 
-  catch (error) {
-    console.log(error.message);
-  }
-};
- 
- */
-const CREATE = 'CREATE';
-const UPDATE = 'UPDATE';
-const DELETE = 'DELETE';
-const FETCH_ALL = 'FETCH_ALL';
-const LIKE = 'LIKE';
+const CREATE = "CREATE";
+const UPDATE = "UPDATE";
+const DELETE = "DELETE";
+const FETCH_ALL = "FETCH_ALL";
+const LIKE = "LIKE";
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
