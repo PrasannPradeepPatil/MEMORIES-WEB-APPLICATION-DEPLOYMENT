@@ -10,7 +10,7 @@ This project was an attempt to learn web development using MERN stack.
 * Install server dependencies with `npm install` for windows and `sudo npm install` for linux
 * Start client  with `npm start` for windows and `sudo npm start` for linux
 * Start server  with `npm start` for windows and `sudo npm start` for linux
-* Kill the ports in case they might be open with `sudo npx kill-port 3000 3001 3002 31706` where 3000 for clirnt,2001,3002 for server ,31706 for heroku
+* Kill the ports in case they might be open with `sudo npx kill-port 3000 3001 3002 5000`
 * visit http://127.0.0.1:3001 from your browser.
 
 ## Project Dependencies

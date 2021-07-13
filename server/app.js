@@ -7,10 +7,12 @@ var debug = require("debug");
 var createError = require("http-errors");
 var jade = require("jade");
 var path = require("path");
+var dotenv = require('dotenv');             
 
 var postsRouter = require("./routes/posts");
 
 var app = express();
+dotenv.config();
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -23,6 +25,9 @@ app.use(logger("dev"));
 app.use(cors());
 
 app.use("/posts", postsRouter);
+app.get("/", (req, res) => {
+  res.send("Hello, Welcome to Memories");
+});
 
 app.use(function (req, res, next) {
   next(createError(404));
@@ -35,14 +40,13 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-const CONNECTION_URL =
-  "mongodb+srv://prasann:prasann123@cluster0.qb7ve.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const PORT = process.env.PORT || 5000;
+const MONGODB_CONNECTION_PORT = process.env.MONGODB_CONNECTION_PORT|| 5000;  
+const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
 mongoose
-  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGODB_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
-    app.listen(PORT, () =>
-      console.log(`Server Running on Port: http://localhost:${PORT}`)
+    app.listen(MONGODB_CONNECTION_PORT, () =>
+      console.log(`Server Running on Port: http://localhost:${MONGODB_CONNECTION_PORT}`)
     )
   )
   .catch((error) => console.log(`${error} did not connect`));
