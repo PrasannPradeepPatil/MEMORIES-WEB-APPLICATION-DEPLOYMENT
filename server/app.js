@@ -7,7 +7,7 @@ var debug = require("debug");
 var createError = require("http-errors");
 var jade = require("jade");
 var path = require("path");
-var dotenv = require('dotenv');             
+var dotenv = require("dotenv");
 
 var postsRouter = require("./routes/posts");
 
@@ -40,13 +40,18 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-const MONGODB_CONNECTION_PORT = process.env.MONGODB_CONNECTION_PORT|| 5000;  
+const MONGODB_CONNECTION_PORT = process.env.MONGODB_CONNECTION_PORT || 5000;
 const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
 mongoose
-  .connect(MONGODB_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGODB_CONNECTION_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() =>
     app.listen(MONGODB_CONNECTION_PORT, () =>
-      console.log(`Server Running on Port: http://localhost:${MONGODB_CONNECTION_PORT}`)
+      console.log(
+        `Server Running on Port: http://localhost:${MONGODB_CONNECTION_PORT}`
+      )
     )
   )
   .catch((error) => console.log(`${error} did not connect`));

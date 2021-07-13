@@ -4,7 +4,7 @@ I have created a simple  CRUD operation using  React, Node.js, Express & MongoDB
 This project was an attempt to learn web development using MERN stack.  
 
 
-## Project Setup
+## Project Setup for running project locally
 * Clone project into local environment
 * Install client dependencies with `npm install` for windows and `sudo npm install` for linux
 * Install server dependencies with `npm install` for windows and `sudo npm install` for linux
@@ -13,6 +13,9 @@ This project was an attempt to learn web development using MERN stack.
 * Kill the ports in case they might be open with `sudo npx kill-port 3000 3001 3002 5000`
 * visit http://127.0.0.1:3001 from your browser.
 
-## Project Dependencies
+## Project Dependencies for running project locally
 - node    
 - mongodb.
+
+## Running project on heroku and netlify 
+ * Visit  https://memories-applicationn.netlify.app/ 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/posts";
+const url = "https://memoriesdeployment.herokuapp.com/posts";
 export const createPost = (newPost) => axios.post(url, newPost);
 export const getPosts = () => axios.get(url);
 export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
